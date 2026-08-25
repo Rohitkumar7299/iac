@@ -3,3 +3,7 @@ resource "aws_iam_role_policy_attachment" "iam-policy" {
   # Just for testing purpose, don't try to give administrator access in production
   policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
 }
+resource "aws_iam_role_policy_attachment" "ssm" {
+  role       = aws_iam_role.iam-role.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+}
